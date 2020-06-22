@@ -35,7 +35,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun test_visibility_next_button() {
+    fun test_visibility_title_next_button() {
         // To launch the activity inside method
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
 
