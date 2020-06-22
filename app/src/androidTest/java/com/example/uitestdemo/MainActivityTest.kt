@@ -3,6 +3,7 @@ package com.example.uitestdemo
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -67,5 +68,25 @@ class MainActivityTest {
 
         // Once navigate to second activity then verify the UI
         onView(withId(R.id.secondary)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun test_backpressToMainActivity() {
+        // To launch the activity inside method
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+
+        // perform on click on the button
+        onView(withId(R.id.button_next_activity)).perform(click())
+
+        // Once navigate to second activity then verify the UI
+        onView(withId(R.id.secondary)).check(matches(isDisplayed()))
+
+        // On Secondary activity press back button
+       // onView(withId(R.id.button_back)).perform(click()) // method 1
+        pressBack() // method 2
+
+        // Verfiy MainActivity view
+        onView(withId(R.id.main)).check(matches(isDisplayed()))
+
     }
 }
