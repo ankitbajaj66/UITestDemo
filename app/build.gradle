@@ -35,10 +35,6 @@ dependencies {
     // Espresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    // Mockk.io
-    def mockk_version = "1.9.3"
-    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
-
     // androidx.test
     def androidx_test = "1.1.0"
     androidTestImplementation "androidx.test:runner:$androidx_test"
